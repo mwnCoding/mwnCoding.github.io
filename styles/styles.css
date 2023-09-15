@@ -2,12 +2,13 @@
 color pallette
 rgb(13, 31, 103)
 rgb(204, 177, 9)
-
+rgb(2, 5, 26)
+rgb(151, 141, 44)
 */
 
 /*General CSS*/
 html {
-
+    font-family: Stencil, 'Arial Narrow Bold', sans-serif;
 }
 
 body {
@@ -17,7 +18,6 @@ body {
 
 #instructions-screen,
 #options-screen,
-#highscore-screen,
 #game-screen,
 #end-screen {
     display: none;
@@ -25,12 +25,17 @@ body {
 
 #start-screen {
     display: flex;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100vh;
     width: 100%;
     background-color: rgb(13, 31, 103);
     color: rgb(204, 177, 9);
+    border: 0.5rem solid rgb(2, 5, 26);
 }
+
+
 
 #start-screen,
 .start-menu-button {
@@ -40,13 +45,26 @@ body {
 
 
 /* Start menu CSS */
+
 #start-menu-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+#start-menu-heading {
+    font-size: 5rem;
+    text-align: center;
 }
 
 .start-menu-button {
     background-color: rgb(204, 177, 9);
+    
+    margin: 2vh 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 15%;
+    box-shadow: 0 4px 3px rgb(2, 5, 26);
 }
 
 
