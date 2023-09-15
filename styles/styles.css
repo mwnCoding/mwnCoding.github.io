@@ -1,0 +1,15 @@
+html {
+    padding: 0;
+}
+
+#start-screen {
+    display: block;
+}
+
+#instructions-screen,
+#options-screen,
+#highscore-screen,
+#game-screen,
+#end-screen {
+    display: none;
+}
