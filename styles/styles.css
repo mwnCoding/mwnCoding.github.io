@@ -1,9 +1,18 @@
+/*
+color pallette
+rgb(13, 31, 103)
+rgb(204, 177, 9)
+
+*/
+
+/*General CSS*/
 html {
-    padding: 0;
+
 }
 
-#start-screen {
-    display: block;
+body {
+    padding: 0;
+    margin: 0;
 }
 
 #instructions-screen,
@@ -13,3 +22,33 @@ html {
 #end-screen {
     display: none;
 }
+
+#start-screen {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(13, 31, 103);
+    color: rgb(204, 177, 9);
+}
+
+#start-screen,
+.start-menu-button {
+    text-transform: uppercase;
+}
+
+
+
+/* Start menu CSS */
+#start-menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.start-menu-button {
+    background-color: rgb(204, 177, 9);
+}
+
+
+
+
