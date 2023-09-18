@@ -1,8 +1,8 @@
 class Entity {
-    constructor(gameScreen, left, top, height, width, health, dictionary) {
+    constructor(gameScreen, posX, posY, height, width, health, dictionary) {
         this.gameScreen = gameScreen;
-        this.positionX = left;
-        this.positionY = top;
+        this.positionX = posX;
+        this.positionY = posY;
         this.width = width;
         this.height = height;
         this.state;
