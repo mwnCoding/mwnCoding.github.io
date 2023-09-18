@@ -16,4 +16,20 @@ class Game {
         //TODO: Select first enemy after class definition
         this.target;
     }
+
+    start() {
+
+    }
+
+    options() {
+
+    }
+
+    highscores() {
+        this.
+    }
+
+    mainMenu() {
+
+    }
 }
