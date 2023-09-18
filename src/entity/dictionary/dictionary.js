@@ -1,5 +1,7 @@
 class Dictionary {
-    constructor() {
-        
+    constructor(words) {
+        this.words = words;
     }
+
+    
 }
