@@ -12,7 +12,7 @@ class Word {
     }
 
     getMeaningOnMatch(secondWord) {
-        if (this.isMatch(secondWord)) {
+        if (this.isMatch(secondWord) && this.word !== secondWord.word) {
             return this.subMeaning;
         }
         else {

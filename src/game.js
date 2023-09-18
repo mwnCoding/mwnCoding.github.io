@@ -12,7 +12,7 @@ class Game {
         //TODO: Add player after class definition
         this.player;
         //TODO: Add enemies array after class definition
-        this.enemies;
+        this.enemies = new Array(3);
         //TODO: Select first enemy after class definition
         this.target;
     }
