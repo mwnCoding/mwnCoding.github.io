@@ -24,7 +24,7 @@ body {
     display: none;
 }
 
-#start-screen,
+#start-screen-container,
 #game-screen-container
 {
     display: flex;
@@ -39,8 +39,8 @@ body {
 
 
 
-#start-screen,
-.start-menu-button {
+#start-screen-container,
+.menu-button {
     text-transform: uppercase;
 }
 
@@ -48,21 +48,21 @@ body {
 
 /* Start menu CSS */
 
-#start-menu-container
+#start-screen
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#start-menu-heading {
+.menu-heading {
     font-size: 5rem;
     text-align: center;
     color: rgb(204, 177, 9);
     text-shadow: 5px 5px 2px rgb(2, 5, 26);
 }
 
-.start-menu-button {
+.menu-button {
     background-color: rgb(204, 177, 9);
     margin: 2vh 0;
     height: 4rem;
