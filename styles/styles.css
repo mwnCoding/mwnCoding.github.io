@@ -16,13 +16,6 @@ body {
     margin: 0;
 }
 
-#highscores-screen,
-#options-screen,
-#game-screen,
-#end-screen {
-    display: none;
-}
-
 #start-screen,
 #game-screen,
 #options-screen,
@@ -38,14 +31,17 @@ body {
     border: 0.5rem solid rgb(2, 5, 26);
 }
 
-
+#highscores-screen,
+#options-screen,
+#game-screen,
+#end-screen {
+    display: none;
+}
 
 #start-screen-container,
 .menu-button {
     text-transform: uppercase;
 }
-
-
 
 /* Start menu CSS */
 
