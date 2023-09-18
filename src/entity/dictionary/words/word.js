@@ -11,12 +11,12 @@ class Word {
         return this.mainMeaning === secondWord.mainMeaning;
     }
 
-    getSubMeaningOnMatch(secondWord) {
+    getMeaningOnMatch(secondWord) {
         if (this.isMatch(secondWord)) {
             return this.subMeaning;
         }
         else {
-            return "fail";
+            return this.mainMeaning;
         }
     }
 }

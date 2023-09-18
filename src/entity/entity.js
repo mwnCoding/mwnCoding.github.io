@@ -20,6 +20,16 @@ class Entity {
         }
     }
 
+    //TODO: Do something with returned meaning
+    attack(word1, word2) {
+        if (word1 && word2) {
+            this.dictionary.getMeaning(word1, word2);
+        }
+        else {
+            this.dictionary.getRandomMatchMeaning();
+        }
+    }
+
     changeState(state) {
         if (state === "idle" || state === "damage" || state === "attack") {
             this.state = state;
