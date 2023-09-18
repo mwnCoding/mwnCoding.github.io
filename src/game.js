@@ -17,20 +17,27 @@ class Game {
     }
 
     startGame() {
-
+        console.log("starting game...");
+        this.startScreen.style.display = "none";
+        this.gameScreen.style.display = "flex";
     }
 
     showOptions() {
-
+        console.log("show options");
+        this.startScreen.style.display = "none";
+        this.optionsScreen.style.display = "flex";
     }
 
     showHighscores() {
-        consloe.log("show highscores");
-        this.startScreen.style.display = none;
-        this.highscoresScreen.style.display = flex;
+        console.log("show highscores");
+        this.startScreen.style.display = "none";
+        this.highscoresScreen.style.display = "flex";
     }
 
     showMainMenu() {
-
+        console.log("show main menu");
+        this.highscoresScreen.style.display = "none";
+        this.optionsScreen.style.display = "none";
+        this.startScreen.style.display = "flex";
     }
 }

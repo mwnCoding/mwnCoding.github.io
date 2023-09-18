@@ -31,13 +31,34 @@
       </div>
     </section>
 
+     <!-- TODO: Setup game screen and game container base (Main) -->
+     <section id="game-screen">
+      <div id="game-screen-container">
+
+      </div>
+    </section>
+
+    <!-- TODO: Setup end screen base (Main) -->
+    <section id="end-screen">
+      <div class="end-screen-container">
+        
+      </div>
+    </section>
+
     <!-- TODO: Setup options screen base (Backlog)-->
     <section id="options-screen">
-      <div class="options-screen-container"></div>
+      <div class="options-screen-container">
+        <input
+          type="button"
+          value="back to menu"
+          id="highscores-back-button"
+          class="menu-button back-button"
+        />
+      </div>
     </section>
 
     <section id="highscores-screen">
-      <div class="highscore-screen-container">
+      <div class="highscores-screen-container">
         <h1 id="highscore-heading" class="menu-heading">Highscores:</h1>
         <ol id="highscore-list">
           <li class="highscore-element"></li>
@@ -51,18 +72,16 @@
           <li class="highscore-element"></li>
           <li class="highscore-element"></li>
         </ol>
+        <input
+          type="button"
+          value="back to menu"
+          id="highscores-back-button"
+          class="menu-button back-button"
+        />
       </div>
     </section>
 
-    <!-- TODO: Setup game screen and game container base (Main) -->
-    <section id="game-screen">
-      <div id="game-screen-container"></div>
-    </section>
 
-    <!-- TODO: Setup end screen base (Main) -->
-    <section id="end-screen">
-      <div class="end-screen-container"></div>
-    </section>
     <script
       type="text/javascript"
       src="./src/entity/dictionary/words/meaning/meaning.js"
