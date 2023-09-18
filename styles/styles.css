@@ -1,8 +1,8 @@
 /*
 color pallette
-rgb(13, 31, 103)
-rgb(204, 177, 9)
-rgb(2, 5, 26)
+rgb(13, 31, 103) background color
+rgb(204, 177, 9) heading and button color
+rgb(2, 5, 26) frame color
 rgb(151, 141, 44)
 */
 
@@ -24,7 +24,9 @@ body {
     display: none;
 }
 
-#start-screen {
+#start-screen,
+#game-screen-container
+{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +34,6 @@ body {
     height: 100vh;
     width: 100%;
     background-color: rgb(13, 31, 103);
-    color: rgb(204, 177, 9);
     border: 0.5rem solid rgb(2, 5, 26);
 }
 
@@ -47,7 +48,8 @@ body {
 
 /* Start menu CSS */
 
-#start-menu-container {
+#start-menu-container
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,15 +58,17 @@ body {
 #start-menu-heading {
     font-size: 5rem;
     text-align: center;
+    color: rgb(204, 177, 9);
+    text-shadow: 5px 5px 2px rgb(2, 5, 26);
 }
 
 .start-menu-button {
     background-color: rgb(204, 177, 9);
-    
     margin: 2vh 0;
+    height: 4rem;
     font-weight: bold;
     font-size: 1.5rem;
-    border-radius: 15%;
+    border-radius: 50px 50%;
     box-shadow: 0 4px 3px rgb(2, 5, 26);
 }
 
