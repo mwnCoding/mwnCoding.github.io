@@ -1,0 +1,20 @@
+Welcome to Wordsmith, ${this.name}!
+
+You are a an upcoming Wordsmith practicing your new skills after you have finished your first year at the academy. 
+Your goal is to survive as many waves of monsters as possible and learn how to use the words you have learned this year.
+
+Here's a quick summary of what you have learned about Wordsmithing during your first year:
+-Wordsmithing is about combining two words.
+-Every word has a MAIN MEANING but not every word has a SUBMEANING
+-For example House has the MAIN MEANING = House and no SUBMEANING
+-Skyscraper would have the MAIN MEANING = House and the SUBMEANING = tall since a skyscraper is a tall House
+-If the words have the same MAIN MEANING trigger the SUBMEANING of the first word
+-The SUBMEANING contains the power to your Wordsmithing
+- If you combine two words with different MAIN MEANINGs or if the first word does not have a SUBMEANING the spell will backfire
+-The dictionary contains all the words you know and their definitions, read them carefully and you will succeed!
+
+Don't forget you just finished your first year at the academy you are still knew to the concepts of wordsmithing.
+The best way to practice is to try. You will figure it out!
+
+Good luck!
+

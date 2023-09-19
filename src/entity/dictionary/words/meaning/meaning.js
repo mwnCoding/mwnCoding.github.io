@@ -6,3 +6,5 @@ class Meaning {
         this.sprite = sprite;
     }
 }
+
+
