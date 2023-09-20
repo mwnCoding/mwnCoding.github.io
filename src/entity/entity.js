@@ -1,15 +1,34 @@
 class Entity {
-    constructor(gameScreen, posX, posY, height, width, health, dictionary) {
+    constructor(gameScreen, posX, posY, height, width, sprite, health, dictionaryPath) {
         this.gameScreen = gameScreen;
         this.positionX = posX;
         this.positionY = posY;
         this.width = width;
         this.height = height;
         this.state;
-        this.sprite;
+        this.sprite = sprite;
         this.health = health;
         this.maxhealth = health;
-        this.dictionary = dictionary;
+        this.dictionary = this.parseDictionaryData(dictionaryPath);
+
+        this.element = document.createElement("img");
+        this.element.src = `${this.sprite}`;
+        this.element.style.position = "absolute";
+
+        this.element.style.left = `${this.positionX}%`;
+        this.element.style.top = `${this.positionY}%`;
+        this.element.style.width = `${this.width}vw`;
+        this.element.style.height = `${this.height}vh`;
+
+        this.gameScreen.appendChild(this.element);
+    }
+
+    async parseDictionaryData(dictionaryPath) {
+        const response = await fetch(dictionaryPath);
+        const wordsObject = await response.json();
+        console.log(wordsObject);
+        let dictionary = new Dictionary(wordsObject.words);
+        return dictionary;
     }
 
     receiveDamage(damage) {

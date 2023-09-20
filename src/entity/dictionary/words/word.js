@@ -1,8 +1,8 @@
 class Word {
-    constructor(word, language, definition, mainMeaning, subMeaning) {
+    constructor(word, language, definitions, mainMeaning, subMeaning) {
         this.word = word;
         this.language = language;
-        this.definition = definition;
+        this.definitions = definitions;
         this.mainMeaning = mainMeaning;
         this.subMeaning = subMeaning;
     }

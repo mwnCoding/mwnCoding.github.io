@@ -1,8 +1,5 @@
 class MainMeaning extends Meaning {
     constructor(meaning) {
-        this.meaning = meaning;
-        this.damage = 5;
-        this.effect = "fail";
-        this.sprite = "Fail/Sprite/path";
+        super(meaning, "fail", 5, "/assets/images/meldSprites/fail.png");
     }
 }

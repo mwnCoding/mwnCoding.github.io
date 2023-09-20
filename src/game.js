@@ -15,12 +15,13 @@ class Game {
         this.wave = 0;
         this.time = 0;
         //TODO: Add player after class definition
+        console.log(this.gameScreen);
         this.player;
         //TODO: Add enemies array after class definition
         this.enemies = new Array(3);
         //TODO: Select first enemy after class definition
         this.target;
-        this.background = '/assets/images/bulkhead-wallsx3.png';
+        this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
         this.timer;
         this.animateId;
     }
@@ -80,7 +81,9 @@ class Game {
         this.gameScreen.style.height = `${this.height}vh`
         this.gameScreen.style.backgroundImage = `url('${this.background}')`;
         this.gameScreen.style.display = "block";
+        this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
+        this.player = new Player(this.gameScreen, 30, 70, 9, 7, "/src/game_data/playerDictionary.json");
         this.startBattle();
     }
 
