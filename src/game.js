@@ -7,6 +7,9 @@ class Game {
         this.gameScreen = document.getElementById('game-screen');
         this.optionsScreen = document.getElementById('options-screen');
         this.highscoresScreen = document.getElementById('highscores-screen');
+        this.meldButton = document.getElementById('meld-button');
+        this.firstWord = document.getElementById('first-word');
+        this.secondWord = document.getElementById('second-word');
         this.height = 80;
         this.width = 80;
         this.wave = 0;

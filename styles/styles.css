@@ -141,6 +141,24 @@ body {
     background-size: 100% 100%;
 }
 
+#meld-button {
+    background-color: rgb(204, 177, 9);
+    text-transform: uppercase;
+    border-radius: 15%;
+    box-shadow: 0 4px 3px rgb(2, 5, 26);
+}
+
+.word-input {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#meld-button,
+.word-input {
+    height: 5vh;
+}
+
+
 
 
 
