@@ -5,9 +5,8 @@ window.addEventListener('load', () => {
     const optionsButton = document.getElementById('options-button');
     const highscoresButton = document.getElementById('highscores-button');
     const backButtons = document.getElementsByClassName('back-button');
-
-    console.log(backButtons);
-
+    const nameButton = document.getElementById('name-button');
+    const instructionsButton = document.getElementById('instructions-button');
 
 
     startButton.addEventListener('click', () => {
@@ -28,9 +27,13 @@ window.addEventListener('load', () => {
         });
     }
 
+    nameButton.addEventListener('click', () => {
+        game.confirmName();
+    });
 
-
-    
+    instructionsButton.addEventListener('click', () => {
+        game.showGameScreenElement();
+    })
 });
 
 

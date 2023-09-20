@@ -17,11 +17,12 @@ body {
 }
 
 #start-screen,
-#game-screen,
+#game-container,
 #options-screen,
 #highscores-screen
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
@@ -33,8 +34,11 @@ body {
 
 #highscores-screen,
 #options-screen,
+#game-container,
+#instructions-screen,
 #game-screen,
-#end-screen {
+#end-screen,
+#word-input {
     display: none;
 }
 
@@ -52,6 +56,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .menu-heading {
@@ -65,10 +70,16 @@ body {
     background-color: rgb(204, 177, 9);
     margin: 2vh 0;
     height: 4rem;
+    width: 40vw;
     font-weight: bold;
     font-size: 1.5rem;
     border-radius: 50px 50%;
     box-shadow: 0 4px 3px rgb(2, 5, 26);
+}
+
+.menu-paragraph {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 /* Highscores menu CSS */
@@ -79,6 +90,57 @@ body {
     font-size: 1.5rem;
     margin: .5rem 0;
 }
+
+/* Game container CSS */
+
+#game-info {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: rgb(204, 177, 9);
+}
+
+.screen {
+    border: 0.5rem solid rgb(204, 177, 9);
+    background-color: rgb(28, 50, 90);
+}
+
+#name-screen,
+#instructions-screen {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(204, 177, 9);
+}
+
+#name-heading {
+    font-size: 4rem;
+    margin-top: 0;
+}
+
+#name-input {
+    height: 5vh;
+    width: 20vw;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#name-button {
+    margin: 2rem 0;
+}
+
+.instructions-menu-paragraph {
+    font-size: 1rem;
+}
+
+#game-screen {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 
 
 

@@ -1,0 +1,5 @@
+Welcome to the world of Wordsmith!
+
+Before we can start please tell me your name:
+<input>
+<button> -> on click call enterName() and showInstructionsScreen() after;

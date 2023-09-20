@@ -31,18 +31,114 @@
       </div>
     </section>
 
-     <!-- TODO: Setup game screen and game container base (Main) -->
-     <section id="game-screen">
-      <div id="game-screen-container">
+    <!-- TODO: Setup game screen and game container base (Main) -->
+    <section id="game-container">
+      <div id="game-info">
+        <span>Time: <span id="time">0</span></span>
+        <span>Wave: <span id="wave">0</span></span>
+      </div>
 
+      <div id="name-screen" class="screen">
+        <h1 id="name-heading" class="menu-heading">
+          Welcome to the world of Wordsmith!
+        </h1>
+        <p class="menu-paragraph">
+          Before you can start your adventure please tell me your name:
+        </p>
+        <input
+          type="text"
+          name="name"
+          id="name-input"
+          placeholder="Enter name..."
+          required
+          minlength="3"
+        />
+        <input
+          id="name-button"
+          class="menu-button"
+          type="button"
+          value="Confirm"
+        />
+      </div>
+
+      <div id="instructions-screen" class="screen">
+        <h1 id="instructions-heading">Welcome to Wordsmith,</h1>
+        <p class="menu-paragraph instructions-menu-paragraph">
+          You are a an upcoming Wordsmith practicing your new skills after you
+          have finished your first year at the academy. Your goal is to survive
+          as many waves of monsters as possible and learn how to use the words
+          you have learned this year.
+        </p>
+        <p class="menu-paragraph instructions-menu-paragraph">
+          ere's a quick summary of what you have learned about Wordsmithing
+          during your first year:
+        </p>
+        <ul id="hint-list">
+          <li class="hint-list-item">
+            Wordsmithing is about combining two words.
+          </li>
+          <li class="hint-list-item">
+            Every word has a MAIN MEANING but not every word has a SUBMEANING
+          </li>
+          <li class="hint-list-item">
+            For example House has the MAIN MEANING = House and no SUBMEANING
+          </li>
+          <li class="hint-list-item">
+            Skyscraper would have the MAIN MEANING = House and the SUBMEANING =
+            tall since a skyscraper is a tall House
+          </li>
+          <li class="hint-list-item">
+            If the words have the same MAIN MEANING trigger the SUBMEANING of
+            the first word
+          </li>
+          <li class="hint-list-item">
+            The SUBMEANING contains the power to your Wordsmithing
+          </li>
+          <li class="hint-list-item">
+            If you combine two words with different MAIN MEANINGs or if the
+            first word does not have a SUBMEANING the spell will backfire
+          </li>
+          <li class="hint-list-item">
+            The dictionary contains all the words you know and their
+            definitions, read them carefully and you will succeed!
+          </li>
+        </ul>
+        <p class="menu-paragraph instructions-menu-paragraph">
+          Don't forget you just finished your first year at the academy you are
+          still knew to the concepts of wordsmithing. The best way to practice
+          is to try. You will figure it out!
+        </p>
+        <p class="menu-paragraph instructions-menu-paragraph">Good luck!</p>
+        <input
+          id="instructions-button"
+          class="menu-button"
+          type="button"
+          value="Confirm"
+        />
+      </div>
+
+      <div id="game-screen" class="screen"></div>
+
+      <div id="word-input">
+        <input
+          type="text"
+          name="first-word"
+          id="first-word"
+          class="word-input"
+        />
+        <input type="button" value="Meld Words" id="meld-button" />
+        <input
+          type="text"
+          name="second-word"
+          id="second-word"
+          class="word-input"
+        />
       </div>
     </section>
 
     <!-- TODO: Setup end screen base (Main) -->
     <section id="end-screen">
-      <div class="end-screen-container">
-        
-      </div>
+      <div class="end-screen-container"></div>
     </section>
 
     <!-- TODO: Setup options screen base (Backlog)-->
@@ -80,7 +176,6 @@
         />
       </div>
     </section>
-
 
     <script
       type="text/javascript"
