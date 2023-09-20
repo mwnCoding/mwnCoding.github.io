@@ -1,0 +1,32 @@
+{
+    "words": [
+        {
+            "word": "water",
+            "language": "english",
+            "definitions": [
+                "a colourless, transparent, odourless liquid",
+                "a stretch or area of water"
+            ],
+            "mainMeaning": {
+                "meaning": "liquid" 
+            },
+            "subMeaning": {
+                "meaning": "area of water",
+                "effect": "wave",
+                "damage": 20,
+                "sprite": "/assets/images/meldSprites/wave.png"
+            }
+        },
+        {
+            "word": "wasser",
+            "language": "german",
+            "definitions": [
+                "a colourless, transparent, odourless liquid"
+            ],
+            "mainMeaning": {
+                "meaning": "liquid"
+            },
+            "subMeaning": {}
+        }
+    ]
+}

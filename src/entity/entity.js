@@ -8,6 +8,7 @@ class Entity {
         this.state;
         this.sprite;
         this.health = health;
+        this.maxhealth = health;
         this.dictionary = dictionary;
     }
 
@@ -21,7 +22,7 @@ class Entity {
     }
 
     //TODO: Do something with returned meaning
-    attack(word1, word2) {
+    meldWords(word1, word2) {
         if (word1 && word2) {
             this.dictionary.getMeaning(word1, word2);
         }
