@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
     const backButtons = document.getElementsByClassName('back-button');
     const nameButton = document.getElementById('name-button');
     const instructionsButton = document.getElementById('instructions-button');
+    const meldButton = document.getElementById('meld-button');
 
 
     startButton.addEventListener('click', () => {
@@ -33,7 +34,16 @@ window.addEventListener('load', () => {
 
     instructionsButton.addEventListener('click', () => {
         game.showGameScreenElement();
-    })
+    });
+
+    meldButton.addEventListener('click', () => {
+        const firstWord = game.firstWord.value;
+        const secondWord = game.secondWord.value;
+        game.player.attack(firstWord, secondWord, game.target);
+        game.firstWord.value = '';
+        game.secondWord.value = '';
+        game.isTurn = false;
+    });
 });
 
 

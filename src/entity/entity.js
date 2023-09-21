@@ -9,7 +9,9 @@ class Entity {
         this.sprite = sprite;
         this.health = health;
         this.maxhealth = health;
-        this.dictionary = this.parseDictionaryData(dictionaryPath);
+        this.dictionary;
+
+        this.parseDictionaryData(dictionaryPath);
 
         this.element = document.createElement("img");
         this.element.src = `${this.sprite}`;
@@ -17,8 +19,8 @@ class Entity {
 
         this.element.style.left = `${this.positionX}%`;
         this.element.style.top = `${this.positionY}%`;
-        this.element.style.width = `${this.width}vw`;
-        this.element.style.height = `${this.height}vh`;
+        this.element.style.width = `${this.width}px`;
+        this.element.style.height = `${this.height}px`;
 
         this.gameScreen.appendChild(this.element);
     }
@@ -26,9 +28,7 @@ class Entity {
     async parseDictionaryData(dictionaryPath) {
         const response = await fetch(dictionaryPath);
         const wordsObject = await response.json();
-        console.log(wordsObject);
-        let dictionary = new Dictionary(wordsObject.words);
-        return dictionary;
+        this.dictionary = new Dictionary(wordsObject.words);
     }
 
     receiveDamage(damage) {
@@ -42,11 +42,14 @@ class Entity {
 
     //TODO: Do something with returned meaning
     meldWords(word1, word2) {
-        if (word1 && word2) {
-            this.dictionary.getMeaning(word1, word2);
+        if (word1 !== "" && word2 !== "") {
+            const match = this.dictionary.getMeaning(word1, word2);
+            return match;
         }
         else {
-            this.dictionary.getRandomMatchMeaning();
+            console.log("ranodm")
+            const randomMatch = this.dictionary.getRandomMatchMeaning();
+            return randomMatch;
         }
     }
 

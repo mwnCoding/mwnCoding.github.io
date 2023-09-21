@@ -18,13 +18,14 @@ class Game {
         console.log(this.gameScreen);
         this.player;
         //TODO: Add enemies array after class definition
-        this.enemies;
+        this.enemies = [];
         //TODO: Select first enemy after class definition
         this.target;
         this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
         this.timer;
         this.animateId;
         this.waveData;
+        this.isTurn = true;
     }
 
     showOptions() {
@@ -89,23 +90,41 @@ class Game {
     }
 
     createPlayer() {
-        this.player = new Player(this.gameScreen, 30, 70, 9, 7, "/src/game_data/playerDictionary.json");
+        this.player = new Player(this.gameScreen, 30, 70, 64, 64, "/src/game_data/playerDictionary.json");
     }
 
-    startBattle() {
+    async startBattle() {
         this.timer = setInterval(() => {
             this.time++;
         }, 1000)
         this.wave = 1;
-        this.getWaveDataObject();
+        
+        const response = await fetch("/src/game_data/waveData.json");
+        const wavesObject = await response.json();
+        this.waveData = wavesObject;
+        console.log(this.waveData);
+
         this.gameLoop();
     }
 
     gameLoop() {
-        this.update();
+
+        if (this.wave === 1 && this.enemies.length === 0) {
+            this.startFirstWave();
+        }
+        else {
+            if (this.enemies.length === 0) {
+                this.getNextWave();
+            }
+            else {
+                this.battle();
+            }
+        }
 
         document.getElementById('wave').innerText = this.wave;
         document.getElementById('time').innerText = this.time;
+
+        this.update();
 
         this.animateId = requestAnimationFrame(() => this.gameLoop());
     }
@@ -114,15 +133,45 @@ class Game {
 
     }
 
-    async getWaveDataObject() {
-        const response = await fetch("/src/game_data/waveData.json");
-        const wavesObject = await response.json();
-        this.waveData = wavesObject;
-        console.log(this.waveData);
+    startFirstWave() {
+        console.log("starting first wave");
+        const firstWaveData = this.waveData.waves[0];
+        const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
+        this.setTarget(newEnemy);
+        this.enemies.push(newEnemy);
     }
 
-    checkForWave() {
-
+    battle() {
+        if (!this.isTurn) {
+            this.meldButton.disabled = true;
+            for (const enemy of this.enemies) {
+                enemy.attack(this.player);
+            }
+            this.isTurn = true;
+        }
+        else {
+            this.meldButton.disabled = false;
+        }
     }
 
+    setTarget(enemy) {
+        if (this.target) {
+            this.target.element.classList.remove("target");
+            this.target = enemy;
+            this.target.element.classList.remove("target");
+        }
+        else {
+            this.target = enemy;
+            this.target.element.classList.add("target");
+        }
+    }
+
+    getNextWave() {
+        console.log(`Wave ${this.wave} starting...`);
+        this.wave += 1;
+        const waveData = this.waveData.waves[this.wave - 1];
+        const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
+        this.setTarget(newEnemy);
+        this.enemies.push(newEnemy);
+    }
 }

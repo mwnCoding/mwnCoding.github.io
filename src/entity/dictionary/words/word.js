@@ -4,16 +4,24 @@ class Word {
         this.language = language;
         this.definitions = definitions;
         this.mainMeaning = mainMeaning;
-        this.subMeaning = subMeaning;
+        if (subMeaning) {
+            this.subMeaning = subMeaning;
+        }
+
     }
 
     isMatch(secondWord) {
-        return this.mainMeaning === secondWord.mainMeaning;
+        return this.mainMeaning.meaning === secondWord.mainMeaning.meaning;
     }
 
     getMeaningOnMatch(secondWord) {
         if (this.isMatch(secondWord) && this.word !== secondWord.word) {
-            return this.subMeaning;
+            if (this.subMeaning !== {}) {
+                return this.subMeaning;
+            }
+            else {
+                return this.mainMeaning;
+            }
         }
         else {
             return this.mainMeaning;
