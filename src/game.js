@@ -18,12 +18,13 @@ class Game {
         console.log(this.gameScreen);
         this.player;
         //TODO: Add enemies array after class definition
-        this.enemies = new Array(3);
+        this.enemies;
         //TODO: Select first enemy after class definition
         this.target;
         this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
         this.timer;
         this.animateId;
+        this.waveData;
     }
 
     showOptions() {
@@ -83,8 +84,12 @@ class Game {
         this.gameScreen.style.display = "block";
         this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
-        this.player = new Player(this.gameScreen, 30, 70, 9, 7, "/src/game_data/playerDictionary.json");
+        this.createPlayer();
         this.startBattle();
+    }
+
+    createPlayer() {
+        this.player = new Player(this.gameScreen, 30, 70, 9, 7, "/src/game_data/playerDictionary.json");
     }
 
     startBattle() {
@@ -92,6 +97,7 @@ class Game {
             this.time++;
         }, 1000)
         this.wave = 1;
+        this.getWaveDataObject();
         this.gameLoop();
     }
 
@@ -105,6 +111,17 @@ class Game {
     }
 
     update() {
+
+    }
+
+    async getWaveDataObject() {
+        const response = await fetch("/src/game_data/waveData.json");
+        const wavesObject = await response.json();
+        this.waveData = wavesObject;
+        console.log(this.waveData);
+    }
+
+    checkForWave() {
 
     }
 

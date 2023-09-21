@@ -1,0 +1,54 @@
+{
+    "waves": [
+       {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 25,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 30,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 35,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 40,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 50,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 55,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 60,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 65,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 70,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        },
+        {
+            "sprite": "/assets/images/characters/EVil Wizard 2/idle_tiles/tile000.png",
+            "health": 75,
+            "dictionaryPath": "/src/game_data/wave_dictionaries/wave00/wizardDictionary.json"
+        }
+    ]       
+}
