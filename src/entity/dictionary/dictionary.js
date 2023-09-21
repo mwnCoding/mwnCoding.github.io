@@ -3,25 +3,22 @@ class Dictionary {
         this.words = this.createDictionary(words);
     }
 
-    createDictionary(words) {
-        let wordObjectArray = [];
-        for (const word of words) {
-            const mainMeaning = new MainMeaning(word.mainMeaning.word);
-            if(word.hasProperty("subMeaning")) {
-               const subMeaning = new SubMeaning(word.subMeaning.meaning, word.subMeaning.effect, word.subMeaning.damage, word.subMeaning.sprite); 
-               wordObjectArray.push(new Word(word.word, word.language, word.definitions, mainMeaning, subMeaning));
-            }
-            else {
-                wordObjectArray.push(new Word(word.word, word.language, word.definitions, mainMeaning));
-            }
+    createDictionary(wordsObject) {
+        let wordList = [];
+        for (let i = 0; i < wordsObject.length; i++) {
+            wordList.push(wordsObject[i]);
         }
-        return wordObjectArray;
+        return wordList;
     }
 
     getMeaning(word1, word2) {
-        console.log("getting meaning");
-        const firstWord = this.getWord(word1);
-        const secondWord = this.getWord(word2);
+        console.log(word1);
+        console.log(word2);
+        console.log(this.words);
+        const firstWord = this.getWord(word1.toLowerCase());
+        const secondWord = this.getWord(word2.toLowerCase());
+        console.log(firstWord);
+        console.log(secondWord);
         if (firstWord && secondWord) {
             return firstWord.getMeaningOnMatch(secondWord);
         }
@@ -31,23 +28,22 @@ class Dictionary {
     }
 
     getWord(word) {
-        for (const currentWord of this.words) {
-            if (currentWord.word === word) {
-                return currentWord;
+        for (let i = 0; i < this.words.length; i++) {
+            if (this.words[i].word === word) {
+                return this.words[i];
             }
         }
-        return null;
+        throw new Error("Error: word is not in dictionary");
     }
 
 
     //TODO: Decide if enemies are able to hurt themselves | current state: no
     getRandomMatchMeaning() {
-        const randomWordIndex1 = Math.floor(Math.random() * (this.words.length));
-        console.log(randomWordIndex1);
-        console.log(this.words.length);
-        let randomWordIndex2 = randomWordIndex1;
-        randomWordIndex2 = Math.floor(Math.random() * (this.words.length));
 
-        return this.getMeaning(this.words[randomWordIndex1].word, this.words[randomWordIndex2].word);
+        const randomWordIndex2 = Math.floor(Math.random() * (this.words.length));
+
+        const randomWordIndex1 = Math.floor(Math.random() * this.words.length);
+        const randomMeaning = this.getMeaning(this.words[randomWordIndex1].word, this.words[randomWordIndex2].word);
+        return randomMeaning;
     }
 }

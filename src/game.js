@@ -1,3 +1,7 @@
+import waveData from "./game_data/waveData.json";
+import playerDictionaryData from "./game_data/playerDictionary.json"
+import wizardDictionaryData from "./game_data/wave_dictionaries/wave00/wizardDictionary.json"
+
 class Game {
     constructor() {
         this.startScreen = document.getElementById('start-screen');
@@ -86,45 +90,46 @@ class Game {
         this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
         this.createPlayer();
-        this.startBattle();
     }
 
-    createPlayer() {
+    async createPlayer() {
         this.player = new Player(this.gameScreen, 30, 70, 64, 64, "/src/game_data/playerDictionary.json");
+        
+        
+        const response = await fetch(this.player.dictionaryPath);
+        const wordsObject = await response.json();
+        this.player.createDictionary();
+
+        console.log(this.player);
+
+        this.startBattle();
     }
 
     async startBattle() {
         this.timer = setInterval(() => {
             this.time++;
-        }, 1000)
-        this.wave = 1;
+        }, 1000);
         
         const response = await fetch("/src/game_data/waveData.json");
         const wavesObject = await response.json();
         this.waveData = wavesObject;
-        console.log(this.waveData);
 
-        this.gameLoop();
+        this.startNextWave();
     }
 
     gameLoop() {
-
-        if (this.wave === 1 && this.enemies.length === 0) {
-            this.startFirstWave();
-        }
-        else {
-            if (this.enemies.length === 0) {
-                this.getNextWave();
-            }
-            else {
-                this.battle();
-            }
-        }
-
         document.getElementById('wave').innerText = this.wave;
         document.getElementById('time').innerText = this.time;
 
         this.update();
+
+
+        if (this.enemies.length === 0) {
+            this.startNextWave()
+        }
+        else {
+            this.battle();
+        }
 
         this.animateId = requestAnimationFrame(() => this.gameLoop());
     }
@@ -133,11 +138,21 @@ class Game {
 
     }
 
-    startFirstWave() {
+    async startNextWave() {
+        this.wave += 1;
+        await this.createEnemy();
+        this.gameLoop();
+    }
+
+    async createEnemy() {
         console.log("starting first wave");
-        const firstWaveData = this.waveData.waves[0];
+        const firstWaveData = this.waveData.waves[this.wave - 1];
         const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
-        this.setTarget(newEnemy);
+ 
+        const response = await fetch(newEnemy.dictionaryPath);
+        const wordsObject = await response.json();
+        newEnemy.createDictionary();
+
         this.enemies.push(newEnemy);
     }
 

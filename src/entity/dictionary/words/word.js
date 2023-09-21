@@ -5,7 +5,9 @@ class Word {
         this.definitions = definitions;
         this.mainMeaning = mainMeaning;
         if (subMeaning) {
-            this.subMeaning = subMeaning;
+            this.subMeaning = subMeaning
+        } else {
+            this.subMeaning = new MainMeaning("fail");
         }
 
     }
@@ -16,7 +18,8 @@ class Word {
 
     getMeaningOnMatch(secondWord) {
         if (this.isMatch(secondWord) && this.word !== secondWord.word) {
-            if (this.subMeaning !== {}) {
+            if (this.subMeaning) {
+                console.log("submeaning shouldnt be undefined", this.subMeaning)
                 return this.subMeaning;
             }
             else {

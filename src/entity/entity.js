@@ -9,9 +9,8 @@ class Entity {
         this.sprite = sprite;
         this.health = health;
         this.maxhealth = health;
+        this.dictionaryPath = dictionaryPath;
         this.dictionary;
-
-        this.parseDictionaryData(dictionaryPath);
 
         this.element = document.createElement("img");
         this.element.src = `${this.sprite}`;
@@ -25,11 +24,6 @@ class Entity {
         this.gameScreen.appendChild(this.element);
     }
 
-    async parseDictionaryData(dictionaryPath) {
-        const response = await fetch(dictionaryPath);
-        const wordsObject = await response.json();
-        this.dictionary = new Dictionary(wordsObject.words);
-    }
 
     receiveDamage(damage) {
         if (typeof damage === "number") {
@@ -42,16 +36,15 @@ class Entity {
 
     //TODO: Do something with returned meaning
     meldWords(word1, word2) {
-        if (word1 !== "" && word2 !== "") {
             const match = this.dictionary.getMeaning(word1, word2);
             return match;
         }
-        else {
-            console.log("ranodm")
-            const randomMatch = this.dictionary.getRandomMatchMeaning();
-            return randomMatch;
-        }
+
+
+    createDictionary(words) {
+            
     }
+
 
     changeState(state) {
         if (state === "idle" || state === "damage" || state === "attack") {

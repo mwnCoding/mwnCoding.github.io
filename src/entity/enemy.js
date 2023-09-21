@@ -5,8 +5,7 @@ class Enemy extends Entity {
     }
 
     attack(target) {
-        const meaning = this.meldWords();
-        console.log(meaning);
+        const meaning = this.dictionary.getRandomMeaning();
         if (meaning.effect === "fail") {
             this.receiveDamage(meaning.damage);
             console.log(`Failed cast damage ${meaning.damage}, hp ${this.health}`);

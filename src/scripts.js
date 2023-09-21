@@ -39,10 +39,12 @@ window.addEventListener('load', () => {
     meldButton.addEventListener('click', () => {
         const firstWord = game.firstWord.value;
         const secondWord = game.secondWord.value;
+        if (firstWord && secondWord) {
         game.player.attack(firstWord, secondWord, game.target);
         game.firstWord.value = '';
         game.secondWord.value = '';
         game.isTurn = false;
+        }
     });
 });
 
