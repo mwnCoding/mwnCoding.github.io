@@ -1,4 +1,7 @@
+
+
 class Game {
+
     constructor() {
         this.startScreen = document.getElementById('start-screen');
         this.gameContainer = document.getElementById('game-container');
@@ -12,20 +15,19 @@ class Game {
         this.secondWord = document.getElementById('second-word');
         this.height = 80;
         this.width = 80;
+        this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
+
         this.wave = 0;
         this.time = 0;
-        //TODO: Add player after class definition
-        console.log(this.gameScreen);
         this.player;
-        //TODO: Add enemies array after class definition
         this.enemies = [];
-        //TODO: Select first enemy after class definition
         this.target;
-        this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
+        this.isTurn = true;
+
+        this.words = [];
+
         this.timer;
         this.animateId;
-        this.waveData;
-        this.isTurn = true;
     }
 
     showOptions() {
@@ -85,44 +87,54 @@ class Game {
         this.gameScreen.style.display = "block";
         this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
+        this.createWords();
         this.createPlayer();
         this.startBattle();
     }
 
-    createPlayer() {
-        this.player = new Player(this.gameScreen, 30, 70, 64, 64, "/src/game_data/playerDictionary.json");
+    createWords() {
+        const waterDefinitions =[
+            "a colourless, transparent, odourless liquid",
+            "pour or sprinkle water to encourage plant growth"
+        ]
+        const waterMainMeaning = new MainMeaning("liquid");
+        const waterSubMeaning = new SubMeaning("growth", "heal", 10, "/assets/images/meldSprites/heal.png");
+        const water = new Word("water", "english", waterDefinitions, waterMainMeaning , waterSubMeaning);
+
+        const wasserDefintions = [
+            "a colourless, transparent, odourless liquid",
+            "water in a moving body of water"
+        ]
+        const wasserMainMeaning = new MainMeaning("liquid");
+        const wasserSubMeaning = new SubMeaning("moving body of water", "wave", 20, "/assets/images/meldSprites/wave.png");
+        const wasser = new Word("wasser", "german", wasserDefintions, wasserMainMeaning, wasserSubMeaning);
+
+        this.words.push(water);
+        this.words.push(wasser);
     }
 
-    async startBattle() {
+        createPlayer() {
+            const playerDictionary = new Dictionary(this.words);
+            this.player = new Player(this.gameScreen, 220, 360, 80, 80, playerDictionary);
+        }
+
+    startBattle() {
         this.timer = setInterval(() => {
             this.time++;
-        }, 1000)
-        this.wave = 1;
-        
-        const response = await fetch("/src/game_data/waveData.json");
-        const wavesObject = await response.json();
-        this.waveData = wavesObject;
-        console.log(this.waveData);
+        }, 1000)    
 
         this.gameLoop();
     }
 
     gameLoop() {
 
-        if (this.wave === 1 && this.enemies.length === 0) {
-            this.startFirstWave();
+    
+        if (this.enemies.length === 0) {
+            this.getNextWave();
         }
         else {
-            if (this.enemies.length === 0) {
-                this.getNextWave();
-            }
-            else {
-                this.battle();
-            }
+            this.battle();
         }
-
-        document.getElementById('wave').innerText = this.wave;
-        document.getElementById('time').innerText = this.time;
 
         this.update();
 
@@ -130,27 +142,50 @@ class Game {
     }
 
     update() {
-
+        document.getElementById('wave').innerText = this.wave;
+        document.getElementById('time').innerText = this.time;
     }
 
-    startFirstWave() {
-        console.log("starting first wave");
-        const firstWaveData = this.waveData.waves[0];
-        const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
-        this.setTarget(newEnemy);
-        this.enemies.push(newEnemy);
+    getNextWave() {
+        this.wave += 1;
+        const enemyDict = new Dictionary(this.words);
+        switch(this.wave) {
+            case 1:
+
+                const waveOneEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 25, enemyDict);
+                this.enemies.push(waveOneEnemy);
+                break;
+            case 2:
+                const waveTwoEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 30, enemyDict);
+                this.enemies.push(waveTwoEnemy);
+                break;
+            case 3:
+                const waveThreeEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 35, enemyDict);
+                this.enemies.push(waveThreeEnemy);
+                break;
+            default:
+                this.showWinScreen();
+                break;
+        }
     }
 
     battle() {
         if (!this.isTurn) {
             this.meldButton.disabled = true;
             for (const enemy of this.enemies) {
-                enemy.attack(this.player);
+                enemy.attack();
+            }
+            if (this.player.health <= 0) {
+                this.showEndScreen();
             }
             this.isTurn = true;
         }
         else {
             this.meldButton.disabled = false;
+            if (this.enemies[0].health <= 0) {
+                this.enemies[0].element.remove();
+                this.enemies = [];
+            }
         }
     }
 
@@ -166,12 +201,13 @@ class Game {
         }
     }
 
-    getNextWave() {
-        console.log(`Wave ${this.wave} starting...`);
-        this.wave += 1;
-        const waveData = this.waveData.waves[this.wave - 1];
-        const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
-        this.setTarget(newEnemy);
-        this.enemies.push(newEnemy);
+    showWinScreen() {
+        console.log("You win!");
     }
+
+    showEndScreen() {
+        console.log("You lost!");
+    }
+
+    
 }
