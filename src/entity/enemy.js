@@ -4,7 +4,9 @@ class Enemy extends Entity {
         this.element.classList.add("enemy");
     }
 
-    attack() {
-        
+    attack(target) {
+        const randomMeaning = this.dictionary.getRandomMeaning();
+        target.receiveDamage(randomMeaning.damage);
+        console.log(`${target} received ${randomMeaning.damage} and has ${target.health} hp left`);
     }
 }

@@ -37,8 +37,8 @@ window.addEventListener('load', () => {
     });
 
     meldButton.addEventListener('click', () => {
-        const firstWord = game.firstWord.value;
-        const secondWord = game.secondWord.value;
+        const firstWord = game.firstWord.value.toLowerCase();
+        const secondWord = game.secondWord.value.toLowerCase();
         if (firstWord && secondWord) {
         game.player.attack(firstWord, secondWord, game.target);
         game.firstWord.value = '';

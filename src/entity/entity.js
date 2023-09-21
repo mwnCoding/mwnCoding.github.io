@@ -25,12 +25,7 @@ class Entity {
 
 
     receiveDamage(damage) {
-        
-    }
-
-    //TODO: Do something with returned meaning
-    meldWords(word1, word2) {
-
+        this.health -= damage;
     }
 
     changeState(state) {

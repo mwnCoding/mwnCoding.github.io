@@ -127,7 +127,6 @@ class Game {
     }
 
     gameLoop() {
-
     
         if (this.enemies.length === 0) {
             this.getNextWave();
@@ -152,16 +151,19 @@ class Game {
         switch(this.wave) {
             case 1:
 
-                const waveOneEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 25, enemyDict);
+                const waveOneEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 25, enemyDict);
                 this.enemies.push(waveOneEnemy);
+                this.target = waveOneEnemy;
                 break;
             case 2:
-                const waveTwoEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 30, enemyDict);
+                const waveTwoEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 30, enemyDict);
                 this.enemies.push(waveTwoEnemy);
+                this.target = waveTwoEnemy;
                 break;
             case 3:
-                const waveThreeEnemy = new Enemy(this.gameScreen, 350, 170, 400, 400, 35, enemyDict);
+                const waveThreeEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 35, enemyDict);
                 this.enemies.push(waveThreeEnemy);
+                this.target = waveThreeEnemy;
                 break;
             default:
                 this.showWinScreen();
@@ -173,7 +175,7 @@ class Game {
         if (!this.isTurn) {
             this.meldButton.disabled = true;
             for (const enemy of this.enemies) {
-                enemy.attack();
+                enemy.attack(this.player);
             }
             if (this.player.health <= 0) {
                 this.showEndScreen();

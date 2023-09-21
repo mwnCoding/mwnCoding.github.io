@@ -4,7 +4,10 @@ class Player extends Entity {
     }
 
 
-    attack(word1, word2, target) {
-        
+    attack(string1, string2, target) {
+        console.log("player atacking")
+        const meaning = this.dictionary.getMeaning(string1, string2);
+        target.receiveDamage(meaning.damage);
+        console.log(`${target} received ${meaning.damage} and has ${target.health} hp left`);
     }
 }

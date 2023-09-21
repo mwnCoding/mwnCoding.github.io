@@ -9,10 +9,6 @@ class Word {
     }
 
     isMatch(secondWord) {
-        
-    }
-
-    getMeaningOnMatch(secondWord) {
-        
+        return this.mainMeaning.meaning === secondWord.mainMeaning.meaning;
     }
 }

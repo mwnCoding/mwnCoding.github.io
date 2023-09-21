@@ -3,21 +3,43 @@ class Dictionary {
         this.words = words
     }
 
-    createDictionary(words) {
-      
+    getWord(string) {
+        for (let i = 0; i < this.words.length; i++) {
+            console.log(this.words[i]);
+            if (this.words[i].word === string) {
+                return this.words[i];
+            }
+        }
+        return undefined;
     }
 
-    getMeaning(word1, word2) {
-       
-    }
 
-    getWord(word) {
+    getMeaning(string1, string2) {
+        const firstWord = this.getWord(string1);
+        const secondWord = this.getWord(string2);
+
+        console.log(`The first word is ${firstWord} and the second word is ${secondWord}`)
         
+        if (!firstWord || !secondWord) {
+            return new MainMeaning("fail");      
+        }
+        else if (firstWord.isMatch(secondWord)) {
+            return firstWord.subMeaning;
+        }
+        else {
+            return firstWord.mainMeaning;
+        }
     }
 
+    
+    getRandomMeaning() {
+        const randomIndex1 = Math.floor(Math.random() * this.words.length);
+        let randomIndex2 = randomIndex1;
 
-    //TODO: Decide if enemies are able to hurt themselves | current state: no
-    getRandomMatchMeaning() {
-        
+        while (randomIndex2 === randomIndex1) {
+            randomIndex2 = Math.floor(Math.random() * this.words.length);
+        }
+
+        return this.getMeaning(this.words[randomIndex1].word, this.words[randomIndex2].word);
     }
 }
