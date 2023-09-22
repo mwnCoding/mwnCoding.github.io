@@ -83,7 +83,7 @@ class Game {
         this.gameScreen.style.width = `${this.width}vw`;
         this.gameScreen.style.height = `${this.height}vh`
         this.gameScreen.style.backgroundImage = `url('${this.background}')`;
-        this.gameScreen.style.display = "block";
+        this.gameScreen.style.display = "flex";
         this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
         this.createWords();

@@ -34,15 +34,10 @@ class Dictionary {
     getRandomMeaning() {
         const randomIndex1 = Math.floor(Math.random() * this.words.length);
         let randomIndex2 = randomIndex1;
-    }
-
-    //TODODecide if enemies are able to hurt themselves | current state: no
-    getRandomMatchMeaning() {
-
         while (randomIndex2 === randomIndex1) {
             randomIndex2 = Math.floor(Math.random() * this.words.length);
         }
 
-        return this.getMeaning(this.words[randomIndex1].word, this.words[randomIndex2].word);
+        return this.getMeaning(this.words[randomIndex1].word, this.words[randomIndex2].word);   
     }
 }
