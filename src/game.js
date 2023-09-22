@@ -130,7 +130,7 @@ class Game {
 
     createPlayer() {
         const playerDictionary = new Dictionary(this.words);
-        this.player = new Player(this.gameScreen, 320, 350, 80, 80, playerDictionary);
+        this.player = new Player(this.gameScreen, 30, 65, 80, 80, playerDictionary);
     }
 
     startBattle() {
@@ -163,17 +163,17 @@ class Game {
         const enemyDict = new Dictionary(this.words);
         switch(this.wave) {
             case 1:
-                const waveOneEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 25, enemyDict);
+                const waveOneEnemy = new Enemy(this.gameScreen, 45, 35, 360, 380, 25, enemyDict);
                 this.enemies.push(waveOneEnemy);
                 this.target = waveOneEnemy;
                 break;
             case 2:
-                const waveTwoEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 30, enemyDict);
+                const waveTwoEnemy = new Enemy(this.gameScreen, 45, 35, 360, 380, 30, enemyDict);
                 this.enemies.push(waveTwoEnemy);
                 this.target = waveTwoEnemy;
                 break;
             case 3:
-                const waveThreeEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 35, enemyDict);
+                const waveThreeEnemy = new Enemy(this.gameScreen, 45, 35, 360, 380, 35, enemyDict);
                 this.enemies.push(waveThreeEnemy);
                 this.target = waveThreeEnemy;
                 break;

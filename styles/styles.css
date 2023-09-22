@@ -194,6 +194,10 @@ body {
     background-color: green;
 }
 
+#game-screen {
+    position: relative;
+}
+
 
 
 

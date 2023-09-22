@@ -16,8 +16,8 @@ class Entity {
         this.element.src = `${this.sprite}`;
         this.element.style.position = "absolute";
 
-        this.element.style.left = `${this.positionX}px`;
-        this.element.style.top = `${this.positionY}px`;
+        this.element.style.left = `${this.positionX}%`;
+        this.element.style.top = `${this.positionY}%`;
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
 
