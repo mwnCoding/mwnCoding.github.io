@@ -170,12 +170,13 @@ body {
     display: none;
 }
 
-#health-bar-red {
+#health-bar-player-red,
+#health-bar-enemy-red {
     background-color: red;
-
 }
 
-#health-bar-green {
+#health-bar-player-green,
+#health-bar-enemy-green {
     background-color: green;
 }
 

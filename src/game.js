@@ -12,7 +12,8 @@ class Game {
         this.meldButton = document.getElementById('meld-button');
         this.firstWord = document.getElementById('first-word');
         this.secondWord = document.getElementById('second-word');
-        this.healthBarGreen = document.getElementById('health-bar-green');
+        this.healthBarGreenPlayer = document.getElementById('health-bar-player-green');
+        this.healthBarGreenEnemy = document.getElementById('health-bar-enemy-green');
         this.height = 80;
         this.width = 80;
         this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
@@ -86,9 +87,14 @@ class Game {
         this.gameScreen.style.backgroundImage = `url('${this.background}')`;
         this.gameScreen.style.display = "flex";
         this.gameScreen.style.position = "relative";
+
         document.getElementById('word-input').style.display = "flex";
-        this.healthBarGreen.style.display = "block";
-        document.getElementById("health-bar-red").style.display = "block";
+
+        this.healthBarGreenPlayer.style.display = "block";
+        this.healthBarGreenEnemy.style.display = "block";
+        document.getElementById("health-bar-player-red").style.display = "block";
+        document.getElementById("health-bar-enemy-red").style.display = "block";
+
         this.createWords();
         this.createPlayer();
         this.startBattle();

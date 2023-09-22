@@ -1,5 +1,5 @@
 class Entity {
-    constructor(gameScreen, posX, posY, height, width, sprite, health, dictionary) {
+    constructor(gameScreen, posX, posY, height, width, sprite, health, dictionary, healthBarId) {
         this.gameScreen = gameScreen;
         this.positionX = posX;
         this.positionY = posY;
@@ -10,6 +10,7 @@ class Entity {
         this.health = health;
         this.maxhealth = health;
         this.dictionary = dictionary;
+        this.greenHealthBar = document.getElementById(healthBarId);
 
         this.element = document.createElement("img");
         this.element.src = `${this.sprite}`;
@@ -27,6 +28,8 @@ class Entity {
     receiveDamage(damage) {
         this.health -= damage;
         console.log(this, `receives ${damage} damage`);
+        const newWidth = this.health / this.maxhealth * 200;
+        this.greenHealthBar.style.width = `${newWidth}px`;
     }
 
     receiveHealing(heal) {
@@ -35,7 +38,8 @@ class Entity {
         if (this.health > this.maxhealth) {
             this.health = this.maxhealth;
         }
-        console.log(this.health);
+        const newWidth = this.health / this.maxhealth * 200;
+        this.greenHealthBar.style.width = `${newWidth}px`;
     }
 
     getMeaningEffect(meaning, target) {
