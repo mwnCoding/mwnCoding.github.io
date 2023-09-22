@@ -130,6 +130,28 @@ class Game {
 
     createPlayer() {
         const playerDictionary = new Dictionary(this.words);
+        const dictionaryElement = document.getElementById('dictionary');
+        for (const currentWord of playerDictionary.words) {
+            console.log(`adding ${currentWord}`);
+            const wordContainer = document.createElement('div');
+            wordContainer.classList.add('word-container');
+
+            const word = document.createElement('span');
+            word.classList.add('word');
+            word.innerText = `${currentWord.word}`;
+            wordContainer.appendChild(word);
+
+            const definitionsList = document.createElement('ul');
+            definitionsList.classList.add('definitions-list');
+            for (const definition of currentWord.definitions) {
+                const definitionElement = document.createElement('li');
+                definitionElement.classList.add('definitions-list-item')
+                definitionElement.innerText = `${definition}`;
+                definitionsList.appendChild(definitionElement);
+            }
+            wordContainer.appendChild(definitionsList);
+            dictionaryElement.appendChild(wordContainer);
+        }
         this.player = new Player(this.gameScreen, 30, 65, 80, 80, playerDictionary);
     }
 
