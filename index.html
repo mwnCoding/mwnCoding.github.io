@@ -35,20 +35,15 @@
     <section id="game-container">
       <div id="game-info">
         <span>Time: <span id="time">0</span></span>
-        
+
         <div id="health-bar-player-red" class="health-bar">
-          <div id="health-bar-player-green" class="health-bar">
-          
-          </div>
+          <div id="health-bar-player-green" class="health-bar"></div>
         </div>
-        <span>VS.</span>
+        <span id="versus-span">VS.</span>
         <div id="health-bar-enemy-red" class="health-bar">
-          <div id="health-bar-enemy-green" class="health-bar">
-          
-          </div>
+          <div id="health-bar-enemy-green" class="health-bar"></div>
         </div>
-        
-        
+
         <span>Wave: <span id="wave">0</span></span>
       </div>
 
@@ -84,43 +79,8 @@
           you have learned this year.
         </p>
         <p class="menu-paragraph instructions-menu-paragraph">
-          ere's a quick summary of what you have learned about Wordsmithing
-          during your first year:
-        </p>
-        <ul id="hint-list">
-          <li class="hint-list-item">
-            Wordsmithing is about combining two words.
-          </li>
-          <li class="hint-list-item">
-            Every word has a MAIN MEANING but not every word has a SUBMEANING
-          </li>
-          <li class="hint-list-item">
-            For example House has the MAIN MEANING = House and no SUBMEANING
-          </li>
-          <li class="hint-list-item">
-            Skyscraper would have the MAIN MEANING = House and the SUBMEANING =
-            tall since a skyscraper is a tall House
-          </li>
-          <li class="hint-list-item">
-            If the words have the same MAIN MEANING trigger the SUBMEANING of
-            the first word
-          </li>
-          <li class="hint-list-item">
-            The SUBMEANING contains the power to your Wordsmithing
-          </li>
-          <li class="hint-list-item">
-            If you combine two words with different MAIN MEANINGs or if the
-            first word does not have a SUBMEANING the spell will backfire
-          </li>
-          <li class="hint-list-item">
-            The dictionary contains all the words you know and their
-            definitions, read them carefully and you will succeed!
-          </li>
-        </ul>
-        <p class="menu-paragraph instructions-menu-paragraph">
-          Don't forget you just finished your first year at the academy you are
-          still knew to the concepts of wordsmithing. The best way to practice
-          is to try. You will figure it out!
+          I have not found a way to explain Wordsmithing in a conscise way
+          so....
         </p>
         <p class="menu-paragraph instructions-menu-paragraph">Good luck!</p>
         <input
@@ -152,12 +112,27 @@
           placeholder="Second Word"
         />
       </div>
+
+      <div id="win-screen" class="screen">
+        <h1 class="menu-heading">You Win!</h1>
+        <input
+          type="button"
+          value="Restart"
+          class="menu-button restart-button"
+        />
+      </div>
+
+      <section id="end-screen" class="screen">
+        <h1 class="menu-heading">You Lose!</h1>
+        <input
+          type="button"
+          value="Restart"
+          class="menu-button restart-button"
+        />
+      </section>
     </section>
 
     <!-- TODO: Setup end screen base (Main) -->
-    <section id="end-screen">
-      <div class="end-screen-container"></div>
-    </section>
 
     <!-- TODO: Setup options screen base (Backlog)-->
     <section id="options-screen">

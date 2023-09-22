@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
     const nameButton = document.getElementById('name-button');
     const instructionsButton = document.getElementById('instructions-button');
     const meldButton = document.getElementById('meld-button');
+    const restartButtons = document.getElementsByClassName('restart-button');
 
 
     startButton.addEventListener('click', () => {
@@ -46,6 +47,12 @@ window.addEventListener('load', () => {
         game.isTurn = false;
         }
     });
+
+    for (currentRestartButton of restartButtons) {
+        currentRestartButton.addEventListener('click', () => {
+            location.reload();
+        })
+    } 
 });
 
 

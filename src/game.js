@@ -9,14 +9,19 @@ class Game {
         this.gameScreen = document.getElementById('game-screen');
         this.optionsScreen = document.getElementById('options-screen');
         this.highscoresScreen = document.getElementById('highscores-screen');
+        this.winScreen = document.getElementById('win-screen');
+        this.endScreen = document.getElementById('end-screen');
+
+        this.height = 80;
+        this.width = 80;
+        this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
+
         this.meldButton = document.getElementById('meld-button');
         this.firstWord = document.getElementById('first-word');
         this.secondWord = document.getElementById('second-word');
         this.healthBarGreenPlayer = document.getElementById('health-bar-player-green');
         this.healthBarGreenEnemy = document.getElementById('health-bar-enemy-green');
-        this.height = 80;
-        this.width = 80;
-        this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
+
 
         this.wave = 0;
         this.time = 0;
@@ -24,6 +29,7 @@ class Game {
         this.enemies = [];
         this.target;
         this.isTurn = true;
+        this.win = false;
 
         this.words = [];
 
@@ -85,10 +91,11 @@ class Game {
         this.gameScreen.style.width = `${this.width}vw`;
         this.gameScreen.style.height = `${this.height}vh`
         this.gameScreen.style.backgroundImage = `url('${this.background}')`;
-        this.gameScreen.style.display = "flex";
+        this.gameScreen.style.display = "block";
         this.gameScreen.style.position = "relative";
 
         document.getElementById('word-input').style.display = "flex";
+        document.getElementById('game-info').style.display = "flex";
 
         this.healthBarGreenPlayer.style.display = "block";
         this.healthBarGreenEnemy.style.display = "block";
@@ -123,7 +130,7 @@ class Game {
 
     createPlayer() {
         const playerDictionary = new Dictionary(this.words);
-        this.player = new Player(this.gameScreen, 220, 360, 80, 80, playerDictionary);
+        this.player = new Player(this.gameScreen, 320, 350, 80, 80, playerDictionary);
     }
 
     startBattle() {
@@ -135,19 +142,9 @@ class Game {
     }
 
     gameLoop() {
-    
-        if (this.enemies.length === 0) {
-            this.getNextWave();
-        }
-        else {
-            this.battle();
-        }
-
         this.update();
-
-
         if (this.enemies.length === 0) {
-            this.startNextWave()
+            this.getNextWave()
         }
         else {
             this.battle();
@@ -166,21 +163,22 @@ class Game {
         const enemyDict = new Dictionary(this.words);
         switch(this.wave) {
             case 1:
-                const waveOneEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 25, enemyDict);
+                const waveOneEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 25, enemyDict);
                 this.enemies.push(waveOneEnemy);
                 this.target = waveOneEnemy;
                 break;
             case 2:
-                const waveTwoEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 30, enemyDict);
+                const waveTwoEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 30, enemyDict);
                 this.enemies.push(waveTwoEnemy);
                 this.target = waveTwoEnemy;
                 break;
             case 3:
-                const waveThreeEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 35, enemyDict);
+                const waveThreeEnemy = new Enemy(this.gameScreen, 500, 185, 360, 380, 35, enemyDict);
                 this.enemies.push(waveThreeEnemy);
                 this.target = waveThreeEnemy;
                 break;
             default:
+                cancelAnimationFrame(this.animateId);
                 this.showWinScreen();
                 break;
         }
@@ -193,6 +191,7 @@ class Game {
                 enemy.attack(this.player);
             }
             if (this.player.health <= 0) {
+                cancelAnimationFrame(this.animateId);
                 this.showEndScreen();
             }
             this.isTurn = true;
@@ -219,11 +218,25 @@ class Game {
     }
 
     showWinScreen() {
-        console.log("You win!");
+        console.log("you win!");
+        clearTimeout(this.timer);
+
+        this.gameScreen.style.display = "none";
+        document.getElementById('game-info').style.display = "none";
+        document.getElementById('word-input').style.display = "none";
+
+        this.winScreen.style.display = "flex";
     }
 
     showEndScreen() {
-        console.log("You lost!");
+        console.log("you lose!");
+        clearTimeout(this.timer);
+
+        this.gameScreen.style.display = "none";
+        document.getElementById('game-info').style.display = "none";
+        document.getElementById('word-input').style.display = "none";
+
+        this.endScreen.style.display = "flex";
     }
 
     

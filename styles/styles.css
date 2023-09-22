@@ -32,13 +32,43 @@ body {
     border: 0.5rem solid rgb(2, 5, 26);
 }
 
+#game-info {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: rgb(204, 177, 9);
+}
+
+#start-screen-container,
+#highscores-screen-container,
+#options-screen-container,
+#win-screen,
+#end-screen
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#win-screen,
+#end-screen {
+    height: 75vh;
+    width: 75vw;
+}
+
 #highscores-screen,
 #options-screen,
 #game-container,
 #instructions-screen,
 #game-screen,
 #end-screen,
-#word-input {
+#word-input,
+#game-info,
+#win-screen {
     display: none;
 }
 
@@ -49,15 +79,7 @@ body {
 
 /* Start menu CSS */
 
-#start-screen-container,
-#highscores-screen-container,
-#options-screen-container
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .menu-heading {
     font-size: 5rem;
@@ -93,15 +115,7 @@ body {
 
 /* Game container CSS */
 
-#game-info {
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: rgb(204, 177, 9);
-}
+
 
 .screen {
     border: 0.5rem solid rgb(204, 177, 9);
