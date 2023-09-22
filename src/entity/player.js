@@ -1,19 +1,13 @@
 class Player extends Entity {
-    constructor(gameScreen, posX, posY, height, width, dictionaryPath) {
-        super(gameScreen, posX, posY, height, width, "/assets/images/characters/hooded_sprites/tile000.png", 100, dictionaryPath);
+    constructor(gameScreen, posX, posY, height, width, dictionary) {
+        super(gameScreen, posX, posY, height, width, "/assets/images/characters/hooded_sprites/tile000.png", 100, dictionary);
     }
 
 
-    attack(word1, word2, target) {
-        const meaning = this.meldWords(word1, word2);
-        console.log(meaning);
-        if (meaning.effect === "fail") {
-            this.receiveDamage(meaning.damage);
-            console.log(`Failed cast damage ${meaning.damage}, hp ${this.health}`);
-        }
-        else {
-            target.receiveDamage(meaning.damage);
-            console.log(meaning.damage, this.health);
-        }
+    attack(string1, string2, target) {
+        console.log("player atacking")
+        const meaning = this.dictionary.getMeaning(string1, string2);
+        target.receiveDamage(meaning.damage);
+        console.log(`${target} received ${meaning.damage} and has ${target.health} hp left`);
     }
 }

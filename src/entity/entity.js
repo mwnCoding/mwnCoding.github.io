@@ -1,5 +1,5 @@
 class Entity {
-    constructor(gameScreen, posX, posY, height, width, sprite, health, dictionaryPath) {
+    constructor(gameScreen, posX, posY, height, width, sprite, health, dictionary) {
         this.gameScreen = gameScreen;
         this.positionX = posX;
         this.positionY = posY;
@@ -9,15 +9,19 @@ class Entity {
         this.sprite = sprite;
         this.health = health;
         this.maxhealth = health;
+<<<<<<< HEAD
         this.dictionaryPath = dictionaryPath;
         this.dictionary;
+=======
+        this.dictionary = dictionary;
+>>>>>>> cleanup
 
         this.element = document.createElement("img");
         this.element.src = `${this.sprite}`;
         this.element.style.position = "absolute";
 
-        this.element.style.left = `${this.positionX}%`;
-        this.element.style.top = `${this.positionY}%`;
+        this.element.style.left = `${this.positionX}px`;
+        this.element.style.top = `${this.positionY}px`;
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
 
@@ -26,6 +30,7 @@ class Entity {
 
 
     receiveDamage(damage) {
+<<<<<<< HEAD
         if (typeof damage === "number") {
             this.health -= damage;
         }
@@ -43,6 +48,9 @@ class Entity {
 
     createDictionary(words) {
             
+=======
+        this.health -= damage;
+>>>>>>> cleanup
     }
 
 

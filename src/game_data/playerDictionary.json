@@ -5,26 +5,33 @@
             "language": "english",
             "definitions": [
                 "a colourless, transparent, odourless liquid",
-                "a stretch or area of water"
+                "pour or sprinkle water to encourage plant growth"
             ],
             "mainMeaning": {
                 "meaning": "liquid" 
             },
             "subMeaning": {
-                "meaning": "area of water",
-                "effect": "wave",
-                "damage": 20,
-                "sprite": "/assets/images/meldSprites/wave.png"
+                "meaning": "growth",
+                "effect": "heal",
+                "damage": 10,
+                "sprite": "/assets/images/meldSprites/heal.png"
             }
         },
         {
             "word": "wasser",
             "language": "german",
             "definitions": [
-                "a colourless, transparent, odourless liquid"
+                "a colourless, transparent, odourless liquid",
+                "water in a moving body of water"
             ],
             "mainMeaning": {
                 "meaning": "liquid"
+            },
+            "subMeaning": {
+                "meaning": "moving body of water",
+                "effect": "wave",
+                "damage": 20,
+                "sprite": "/assets/images/meldSprites/wave.png"
             }
         }
     ]
