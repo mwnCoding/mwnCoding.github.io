@@ -9,12 +9,7 @@ class Entity {
         this.sprite = sprite;
         this.health = health;
         this.maxhealth = health;
-<<<<<<< HEAD
-        this.dictionaryPath = dictionaryPath;
-        this.dictionary;
-=======
         this.dictionary = dictionary;
->>>>>>> cleanup
 
         this.element = document.createElement("img");
         this.element.src = `${this.sprite}`;
@@ -30,27 +25,7 @@ class Entity {
 
 
     receiveDamage(damage) {
-<<<<<<< HEAD
-        if (typeof damage === "number") {
-            this.health -= damage;
-        }
-        else {
-            throw new Error("Error: Damage is not a number");
-        }
-    }
-
-    //TODO: Do something with returned meaning
-    meldWords(word1, word2) {
-            const match = this.dictionary.getMeaning(word1, word2);
-            return match;
-        }
-
-
-    createDictionary(words) {
-            
-=======
         this.health -= damage;
->>>>>>> cleanup
     }
 
 

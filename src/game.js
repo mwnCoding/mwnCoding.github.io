@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import waveData from "./game_data/waveData.json";
-import playerDictionaryData from "./game_data/playerDictionary.json"
-import wizardDictionaryData from "./game_data/wave_dictionaries/wave00/wizardDictionary.json"
-=======
-
->>>>>>> cleanup
 
 class Game {
 
@@ -95,21 +88,9 @@ class Game {
         document.getElementById('word-input').style.display = "flex";
         this.createWords();
         this.createPlayer();
+        this.startBattle();
     }
 
-<<<<<<< HEAD
-    async createPlayer() {
-        this.player = new Player(this.gameScreen, 30, 70, 64, 64, "/src/game_data/playerDictionary.json");
-        
-        
-        const response = await fetch(this.player.dictionaryPath);
-        const wordsObject = await response.json();
-        this.player.createDictionary();
-
-        console.log(this.player);
-
-        this.startBattle();
-=======
     createWords() {
         const waterDefinitions =[
             "a colourless, transparent, odourless liquid",
@@ -129,35 +110,22 @@ class Game {
 
         this.words.push(water);
         this.words.push(wasser);
->>>>>>> cleanup
     }
 
-        createPlayer() {
-            const playerDictionary = new Dictionary(this.words);
-            this.player = new Player(this.gameScreen, 220, 360, 80, 80, playerDictionary);
-        }
+    createPlayer() {
+        const playerDictionary = new Dictionary(this.words);
+        this.player = new Player(this.gameScreen, 220, 360, 80, 80, playerDictionary);
+    }
 
     startBattle() {
         this.timer = setInterval(() => {
             this.time++;
-<<<<<<< HEAD
-        }, 1000);
+        }, 1000)   
         
-        const response = await fetch("/src/game_data/waveData.json");
-        const wavesObject = await response.json();
-        this.waveData = wavesObject;
-=======
-        }, 1000)    
->>>>>>> cleanup
-
-        this.startNextWave();
+        this.gameLoop();
     }
 
     gameLoop() {
-<<<<<<< HEAD
-        document.getElementById('wave').innerText = this.wave;
-        document.getElementById('time').innerText = this.time;
-=======
     
         if (this.enemies.length === 0) {
             this.getNextWave();
@@ -165,7 +133,6 @@ class Game {
         else {
             this.battle();
         }
->>>>>>> cleanup
 
         this.update();
 
@@ -185,30 +152,11 @@ class Game {
         document.getElementById('time').innerText = this.time;
     }
 
-<<<<<<< HEAD
-    async startNextWave() {
-        this.wave += 1;
-        await this.createEnemy();
-        this.gameLoop();
-    }
-
-    async createEnemy() {
-        console.log("starting first wave");
-        const firstWaveData = this.waveData.waves[this.wave - 1];
-        const newEnemy = new Enemy(this.gameScreen, 50, 37, 360, 360, firstWaveData.sprite, firstWaveData.health, firstWaveData.dictionaryPath);
- 
-        const response = await fetch(newEnemy.dictionaryPath);
-        const wordsObject = await response.json();
-        newEnemy.createDictionary();
-
-        this.enemies.push(newEnemy);
-=======
     getNextWave() {
         this.wave += 1;
         const enemyDict = new Dictionary(this.words);
         switch(this.wave) {
             case 1:
-
                 const waveOneEnemy = new Enemy(this.gameScreen, 350, 185, 360, 380, 25, enemyDict);
                 this.enemies.push(waveOneEnemy);
                 this.target = waveOneEnemy;
@@ -227,7 +175,6 @@ class Game {
                 this.showWinScreen();
                 break;
         }
->>>>>>> cleanup
     }
 
     battle() {
