@@ -4,7 +4,6 @@ class Dictionary {
     }
     getWord(string) {
         for (let i = 0; i < this.words.length; i++) {
-            console.log(this.words[i]);
             if (this.words[i].word === string) {
                 return this.words[i];
             }
@@ -16,8 +15,6 @@ class Dictionary {
     getMeaning(string1, string2) {
         const firstWord = this.getWord(string1);
         const secondWord = this.getWord(string2);
-
-        console.log(`The first word is ${firstWord} and the second word is ${secondWord}`)
         
         if (!firstWord || !secondWord) {
             return new MainMeaning("fail");      

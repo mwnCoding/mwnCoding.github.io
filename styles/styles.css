@@ -164,6 +164,21 @@ body {
     
 }
 
+.health-bar {
+    height: 25px;
+    width: 200px;
+    display: none;
+}
+
+#health-bar-red {
+    background-color: red;
+
+}
+
+#health-bar-green {
+    background-color: green;
+}
+
 
 
 

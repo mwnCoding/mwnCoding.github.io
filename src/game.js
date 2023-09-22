@@ -12,6 +12,7 @@ class Game {
         this.meldButton = document.getElementById('meld-button');
         this.firstWord = document.getElementById('first-word');
         this.secondWord = document.getElementById('second-word');
+        this.healthBarGreen = document.getElementById('health-bar-green');
         this.height = 80;
         this.width = 80;
         this.background = '/assets/images/backgrounds/bulkhead-wallsx3.png';
@@ -86,6 +87,8 @@ class Game {
         this.gameScreen.style.display = "flex";
         this.gameScreen.style.position = "relative";
         document.getElementById('word-input').style.display = "flex";
+        this.healthBarGreen.style.display = "block";
+        document.getElementById("health-bar-red").style.display = "block";
         this.createWords();
         this.createPlayer();
         this.startBattle();

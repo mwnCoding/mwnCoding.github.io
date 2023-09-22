@@ -6,7 +6,6 @@ class Enemy extends Entity {
 
     attack(target) {
         const randomMeaning = this.dictionary.getRandomMeaning();
-        target.receiveDamage(randomMeaning.damage);
-        console.log(`${target} received ${randomMeaning.damage} and has ${target.health} hp left`);
+        this.getMeaningEffect(randomMeaning, target);
     }
 }

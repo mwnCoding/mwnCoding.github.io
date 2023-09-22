@@ -26,6 +26,27 @@ class Entity {
 
     receiveDamage(damage) {
         this.health -= damage;
+        console.log(this, `receives ${damage} damage`);
+    }
+
+    receiveHealing(heal) {
+        this.health += heal;
+        console.log(this, `receives ${heal} heal`)
+        if (this.health > this.maxhealth) {
+            this.health = this.maxhealth;
+        }
+        console.log(this.health);
+    }
+
+    getMeaningEffect(meaning, target) {
+        switch(meaning.effect) {
+            case "wave":
+                target.receiveDamage(meaning.damage);
+                break;
+            case "heal":
+                this.receiveHealing(meaning.damage);
+                break;
+        }
     }
 
 
